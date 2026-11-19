@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JERGAL — Site officiel</title>
+<meta name="description" content="JERGAL, artiste multi-instrumentiste. 10 albums : Rehumanize, No hypocrisy, The oath, IV, Destructuring, Incipit, Odyssey, Seven, New horizons, Aftermath.">
+<style>
+:root{--bg:#0b0b10;--bg2:#14141d;--card:#191924;--txt:#e8e8f0;--mut:#9a9ab0;--acc:#ff5a2a;--acc2:#ff8c42;--blue:#3f7fff;--line:#2a2a3a}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6}
+a{color:var(--acc2);text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1050px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:50;background:rgba(11,11,16,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:12px 0}
+nav .logo{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.2em;font-size:1.15rem;color:var(--txt)}
+nav .logo svg{width:34px;height:34px}
+nav .links{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap;font-size:.9rem}
+nav a{color:var(--mut);font-weight:600;letter-spacing:.05em}
+nav a:hover{color:var(--acc2)}
+.hero{text-align:center;padding:90px 0 70px;background:radial-gradient(ellipse at 50% -20%,#2a1420 0%,var(--bg) 60%)}
+.hero .emblem{width:130px;margin:0 auto 26px}
+.hero h1{font-size:clamp(2.4rem,7vw,4.2rem);letter-spacing:.28em;font-weight:900}
+.hero h1 span{color:var(--acc)}
+.hero p{color:var(--mut);max-width:620px;margin:16px auto 0;font-size:1.05rem}
+.cta{display:inline-block;margin-top:28px;padding:13px 34px;border-radius:999px;background:linear-gradient(90deg,var(--acc),var(--acc2));color:#fff;font-weight:800;letter-spacing:.08em}
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+h2{font-size:1.7rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:28px}
+h2 b{color:var(--acc)}
+.bio{display:flex;gap:36px;align-items:flex-start;flex-wrap:wrap}
+.bio p{flex:1;min-width:280px;color:#c9c9d8}
+.bio .facts{min-width:240px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.bio .facts div{margin:8px 0;font-size:.93rem}
+.bio .facts b{color:var(--acc2)}
+.disc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:26px}
+.album{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .2s}
+.album:hover{transform:translateY(-4px)}
+.cover{aspect-ratio:1/1;position:relative;overflow:hidden}
+.cover svg,.cover img{width:100%;height:100%;object-fit:cover}
+.album .meta{padding:16px 18px 20px}
+.album h3{letter-spacing:.1em;font-size:1.08rem}
+.album .date{color:var(--mut);font-size:.83rem;margin:2px 0 10px}
+.tracks-btn{background:none;border:none;color:var(--acc2);font-weight:700;cursor:pointer;font-size:.88rem;padding:0}
+.tracks{display:none;margin-top:10px;border-top:1px dashed var(--line);padding-top:10px}
+.tracks.open{display:block}
+.tracks li{list-style:none;display:flex;justify-content:space-between;gap:12px;font-size:.85rem;padding:3px 0}
+.tracks li span{color:var(--mut);font-variant-numeric:tabular-nums}
+.badge{display:inline-block;font-size:.72rem;background:#241019;color:var(--acc2);border:1px solid #3d1c22;padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:middle}
+form{max-width:460px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px}
+input,button[type=submit]{width:100%;padding:12px;margin-top:12px;border-radius:9px;border:1px solid var(--line);background:var(--bg2);color:var(--txt)}
+button[type=submit]{background:linear-gradient(90deg,var(--acc),var(--acc2));border:none;font-weight:800;letter-spacing:.06em;cursor:pointer}
+.dates li{list-style:none;padding:14px 0;border-bottom:1px dashed var(--line);color:var(--mut)}
+footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.85rem}
+.msg{margin-top:10px;color:#7ee787;font-size:.9rem;display:none}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo" id="navLogo">JERGAL</div>
+    <div class="links">
+      <a href="#accueil">Accueil</a><a href="#bio">Bio</a><a href="#discographie">Discographie</a><a href="#boutique">Boutique</a><a href="#dates">Dates</a><a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="accueil">
+  <div class="wrap">
+    <div class="emblem" id="heroEmblem"></div>
+    <h1>JER<span>GAL</span></h1>
+    <p>Artiste multi-instrumentiste. Dix albums digitaux, du metal électronique aux horizons symphoniques. Écoutez, téléchargez, suivez l'odyssée.</p>
+    <a class="cta" href="#discographie">Voir la discographie</a>
+  </div>
+</section>
+
+<section id="bio">
+  <div class="wrap">
+    <h2>La <b>musique</b></h2>
+    <div class="bio">
+      <p>JERGAL est le projet musical de Jérôme Galand, multi-instrumentiste et auteur-compositeur. Entre machines et guitares, il explore les contradictions de l'époque : rehumanisation contre hypocrisie, serments brisés et nouvelles aubes. Dix albums digitaux sortis de 2023 à 2026, plus des instrumentaux, remixages (RMST), remasterisations et reprises. Œuvres déclarées à la SACEM, protégées également au Copyright Office (US).</p>
+      <div class="facts">
+        <div><b>10</b> albums digitaux</div>
+        <div><b>2023 – 2026</b> période de création</div>
+        <div><b>SACEM</b> — auteur-compositeur inscrit</div>
+        <div><b>Remixages RMST</b>, remasterisations, reprises</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="discographie">
+  <div class="wrap">
+    <h2>Disco<b>graphie</b></h2>
+    <div class="disc-grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="boutique">
+  <div class="wrap">
+    <h2>Boutique — téléchargements <b>gratuits</b></h2>
+    <form id="dlForm">
+      <label for="email">Recevez les albums JERGAL en téléchargement gratuit. Laissez votre e-mail :</label>
+      <input type="email" id="email" placeholder="votre@email.com" required>
+      <button type="submit">Recevoir les albums</button>
+      <div class="msg" id="okMsg">Merci ! Votre e-mail a bien été enregistré.</div>
+    </form>
+  </div>
+</section>
+
+<section id="dates">
+  <div class="wrap">
+    <h2>Dates de <b>concert</b></h2>
+    <ul class="dates"><li>Aucune date programmée pour l'instant. Restez connecté !</li></ul>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>Écrivez à JERGAL : <a href="mailto:jergal74@gmail.com">jergal74@gmail.com</a></p>
+    <p style="margin-top:8px"><a href="https://www.youtube.com/@JERGAL-dh8se" target="_blank" rel="noopener">Chaîne YouTube @JERGAL-dh8se</a></p>
+  </div>
+</section>
+
+<footer>© 2026 JERGAL — Tous droits réservés. Œuvres déclarées à la SACEM.</footer>
+
+<script>
+/* Emblème des pochettes : triangle fissuré orange-rouge + œil bleu iris dégradé */
+function logoSVG(size){
+  var g='gradient-'+Math.random().toString(36).slice(2,7);
+  return '<svg viewBox="0 0 100 100" width="'+size+'" height="'+size+'" xmlns="http://www.w3.org/2000/svg">'
+   +'<defs><linearGradient id="'+g+'" x1="0" y1="0" x2="1" y2="1">'
+   +'<stop offset="0" stop-color="#ff8c42"/><stop offset="1" stop-color="#e02f1f"/></linearGradient>'
+   +'<radialGradient id="iris'+g+'" cx=".5" cy=".5" r=".5">'
+   +'<stop offset="0" stop-color="#7fb2ff"/><stop offset=".45" stop-color="#3f7fff"/><stop offset="1" stop-color="#123a9e"/></radialGradient></defs>'
+   +'<path d="M50 6 L94 84 L6 84 Z" fill="url(#'+g+')" stroke="#200a06" stroke-width="2"/>'
+   +'<path d="M50 6 L46 46 L58 52 L54 84" fill="none" stroke="#200a06" stroke-width="2.5" opacity=".75"/>'
+   +'<ellipse cx="50" cy="58" rx="17" ry="11" fill="#fff"/>'
+   +'<circle cx="50" cy="58" r="8.5" fill="url(#iris'+g+')"/>'
+   +'<circle cx="50" cy="58" r="3.6" fill="#0a0a14"/>'
+   +'<path d="M33 58 Q50 47 67 58" fill="none" stroke="#200a06" stroke-width="1.6"/></svg>';
+}
+document.getElementById('heroEmblem').innerHTML=logoSVG(130);
+document.getElementById('navLogo').innerHTML=logoSVG(34)+'<span>JERGAL</span>';
+
+/* Visuels stylisés par album (fallback) */
+function styled(album){
+  var t=album.titre, f=album.style||{};
+  if(t==='Rehumanize') return '<svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice"><rect width="300" height="300" fill="#170a12"/><defs><linearGradient id="fg1" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff8c42"/><stop offset="1" stop-color="#e02f1f" stop-opacity="0"/></linearGradient></defs>'+['M40 300 Q60 180 50 60','M110 300 Q95 160 125 40','M180 300 Q205 190 185 70','M250 300 Q230 170 265 50'].map(function(p,i){return '<path d="'+p+'" stroke="url(#fg1)" stroke-width="'+(10+i*3)+'" fill="none" opacity=".8"/>'}).join('')+'<text x="150" y="285" text-anchor="middle" fill="#eee" font-size="24" font-weight="900" letter-spacing="4">REHUMANIZE</text></svg>';
+  if(t==='Incipit') return '<svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice"><rect width="300" height="300" fill="#0a0f22"/><g transform="translate(150 140) scale(2.2)">'+logoSVG(100).replace('<svg viewBox="0 0 100 100" width="100" height="100"','<svg viewBox="0 0 100 100" width="100" height="100" transform-origin="50 50"').slice(0)+'</g><text x="150" y="285" text-anchor="middle" fill="#eee" font-size="24" font-weight="900" letter-spacing="4">INCIPIT</text></svg>';
+  if(t==='New horizons') return '<svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="nh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2470"/><stop offset=".55" stop-color="#ff8c42"/><stop offset=".58" stop-color="#123a9e"/><stop offset="1" stop-color="#081030"/></linearGradient></defs><rect width="300" height="300" fill="url(#nh)"/><circle cx="150" cy="165" r="46" fill="#ffd27a"/><text x="150" y="285" text-anchor="middle" fill="#eee" font-size="22" font-weight="900" letter-spacing="3">NEW HORIZONS</text></svg>';
+  if(t==='Aftermath') return '<svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice"><rect width="300" height="300" fill="#06060f"/><defs><radialGradient id="nb" cx=".5" cy=".45" r=".6"><stop offset="0" stop-color="#7fb2ff" stop-opacity=".9"/><stop offset=".35" stop-color="#3f7fff" stop-opacity=".4"/><stop offset="1" stop-color="#06060f" stop-opacity="0"/></radialGradient></defs><circle cx="150" cy="140" r="120" fill="url(#nb)"/><circle cx="110" cy="120" r="2" fill="#fff"/><circle cx="190" cy="150" r="1.6" fill="#fff"/><circle cx="160" cy="95" r="1.3" fill="#fff"/><circle cx="135" cy="180" r="1.8" fill="#fff"/><text x="150" y="285" text-anchor="middle" fill="#eee" font-size="24" font-weight="900" letter-spacing="4">AFTERMATH</text></svg>';
+  var g1=f.c1||'#1a1a2e', g2=f.c2||'#2d2d44';
+  return '<svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="d'+t.length+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+g1+'"/><stop offset="1" stop-color="'+g2+'"/></linearGradient></defs><rect width="300" height="300" fill="url(#d'+t.length+')"/><path d="M0 220 Q150 180 300 230 L300 300 L0 300 Z" fill="#000" opacity=".25"/><text x="150" y="150" text-anchor="middle" fill="#fff" font-size="'+Math.min(26,300/(t.length*0.62))+'" font-weight="900" letter-spacing="3">'+t.toUpperCase()+'</text></svg>';
+}
+
+/* Pochettes : URLs publiques (à alimenter via edit_image). Sans entrée → visuel stylisé. */
+var POCHETTES={
+ "Aftermath":"https://mistralaichatupprodswe.blob.core.windows.net/chat-images/assistant/98/1a/7f/981a7f48-8bab-4dbe-92dc-252a77a67e2a/ee7637f0-a96c-4020-8dc8-d10c39f522bb/33550d07-09fe-4c10-9acb-cff19b7b63fe/b53ce2e4-89ad-4755-9273-31eca6deb855.png",
+ "IV":"https://mistralaichatupprodswe.blob.core.windows.net/chat-images/assistant/98/1a/7f/981a7f48-8bab-4dbe-92dc-252a77a67e2a/ee7637f0-a96c-4020-8dc8-d10c39f522bb/ea2faca0-0a04-450b-a968-d515450b6fa6/1a8f4323-31f3-45a3-83bb-6242d1e79b9f.png",
+ "Incipit":"https://mistralaichatupprodswe.blob.core.windows.net/chat-images/assistant/98/1a/7f/981a7f48-8bab-4dbe-92dc-252a77a67e2a/ee7637f0-a96c-4020-8dc8-d10c39f522bb/cb8fea3e-901b-4d4c-9f75-88785efed831/d69ebe94-78b4-4c0c-9c4b-2ba14874f78a.png",
+ "New horizons":"https://mistralaichatupprodswe.blob.core.windows.net/chat-images/assistant/98/1a/7f/981a7f48-8bab-4dbe-92dc-252a77a67e2a/ee7637f0-a96c-4020-8dc8-d10c39f522bb/4dcad871-e76d-4ecc-b047-e501df91d5c0/384cd999-25bc-4627-a2a4-54ea07a60da6.png",
+ "Rehumanize":"https://mistralaichatupprodswe.blob.core.windows.net/chat-images/assistant/98/1a/7f/981a7f48-8bab-4dbe-92dc-252a77a67e2a/ee7637f0-a96c-4020-8dc8-d10c39f522bb/94371ffb-6ab4-4966-97bb-a3ddb224c4af/e1d2d7f7-3f5d-44b7-b429-0ae5a751a8e8.png",
+ "Odyssey":"https://mistralaichatupprodswe.blob.core.windows.net/chat-images/assistant/98/1a/7f/981a7f48-8bab-4dbe-92dc-252a77a67e2a/ee7637f0-a96c-4020-8dc8-d10c39f522bb/14cb6e10-ef2d-4195-9802-d9122a9a01e7/d2f93457-7131-45ee-82c7-91a689fb469f.png",
+"The oath":"https://mistralaichatupprodswe.blob.core.windows.net/chat-images/assistant/98/1a/7f/981a7f48-8bab-4dbe-92dc-252a77a67e2a/ee7637f0-a96c-4020-8dc8-d10c39f522bb/8f87d4e8-820d-4529-ab43-7f384c1ee95a/69be49e2-b75c-4c11-82a7-d87b6d764c3e.png",
+ "Destructuring":"https://mistralaichatupprodswe.blob.core.windows.net/chat-images/assistant/98/1a/7f/981a7f48-8bab-4dbe-92dc-252a77a67e2a/ee7637f0-a96c-4020-8dc8-d10c39f522bb/e2024804-0eff-438a-bba6-2827750200bb/a090b8a6-58f6-4bfa-b88b-491ac800fe69.png",
+ "No hypocrisy":"https://mistralaichatupprodswe.blob.core.windows.net/chat-images/assistant/98/1a/7f/981a7f48-8bab-4dbe-92dc-252a77a67e2a/ee7637f0-a96c-4020-8dc8-d10c39f522bb/5aac58c9-81fb-434a-9eda-5981d3c8a389/34745d00-c8a5-4d1f-a000-c8f95ffab7e4.png"
+};
+var FALLBACK={};/* si URL, objet {u:'...', s:styledSVG} */
+
+var ALBUMS=[
+{titre:"Aftermath",date:"Avril 2026",style:{},tracks:[["Thy empty sky","4:45"],["In the afterglow","4:20"],["A waking nightmare","3:06"],["Attention span weakening","5:01"],["Psychorgidity towards paranoia","4:27"],["Ego kills the world","3:23"],["We ain't free","3:34"],["Paradise on earth","4:15"],["Karmic link release","0:46"],["Aftermath","10:14"]]},
+{titre:"New horizons",date:"Décembre 2025",style:{},tracks:[["Dark prophecies","3:57"],["Doomed","4:07"],["Open your heart","3:16"],["End of the line","3:56"],["Angel in disguise","3:14"],["Evil egregores","3:03"],["New horizons","6:41"],["Black magic","3:46"],["Healing","3:52"],["Upside down","3:07"],["Lack of communication","3:02"],["Sweat, blood, tears","3:12"]]},
+{titre:"Odyssey",date:"Décembre 2025",style:{},tracks:[["A new me","3:10"],["Disillusion","3:02"],["Last step before enlightenment","3:39"],["Odyssey","7:37"],["Moving backwards","3:02"],["Your love","3:01"],["These hostile folks","4:11"],["The lotus-eaters","3:06"],["Twin flames","3:30"],["The 5th dimension","3:53"],["Lost","3:18"],["Departure","3:09"]]},
+{titre:"Seven",date:"14 août 2025",style:{},tracks:[["The great pretender","6:26"],["Allens","3:51"],["Living in the past","3:16"],["Crystal ball","3:12"],["Cry of the banshee","3:22"],["My worst friend","4:24"],["Seven","15:38"]]},
+{titre:"Incipit",date:"24 juillet 2025",style:{},tracks:[["Arte Deus","4:22"],["Flight from insanity","3:35"],["The meaning of life","3:17"],["Karma","3:03"],["Signs in the sky","3:07"],["Betterment","3:16"],["Perfect imperfection","4:01"],["Beauty from above","4:24"],["The accursed poet","3:18"],["Brothers","3:51"],["Living for music","3:23"],["Sehlo therapy","3:50"]]},
+{titre:"Destructuring",date:"15 juillet 2024",style:{},tracks:[["The shrinking man","3:02"],["Sheep","3:37"],["Mars citizens","4:13"],["Nonentity","4:20"],["Stay innocent","3:11"],["Vanishing memories","2:21"],["Micromegas","3:40"],["Hell on Earth","4:11"],["When love fails","3:59"],["Destructuring","5:32"],["Free me","3:04"],["Pyramids","5:29"]]},
+{titre:"IV",date:"2024",style:{},tracks:[["Malevolent ways","3:47"],["Modern freaks","3:40"],["The apocalypse","4:05"],["Pros & cons","3:29"],["Hail Mary","3:23"],["Back of my mind","3:04"],["Say your prayers","3:46"],["Neverland","3:42"],["Dedicated","3:09"],["Intermission","3:47"]]},
+{titre:"No hypocrisy",date:"15 juillet 2024",style:{},tracks:[["Interesting people","4:27"],["Voyager","5:13"],["Juliet","3:43"],["Friday the 13th","4:21"],["Method to enslave the masses","5:25"],["God vs Devil","11:29"],["Still waiting","2:53"],["Thelephobia","4:28"],["No way of all flesh","5:37"]]},
+{titre:"The oath",date:"27 mai 2024",style:{},tracks:[["Same differences","3:09"],["Right to shut your mouth","3:41"],["The enemy inside","4:07"],["Too much loving you","5:49"],["Eternity","3:45"],["The antichrist","3:45"],["Final war","3:10"],["Mommy","4:47"],["The oath","3:04"],["Outta me","3:45"]]},
+{titre:"Rehumanize",date:"2023",style:{},tracks:[["Human machines","6:12"],["On the rainbow","4:13"],["Only a dream","2:31"],["God is hate","4:38"],["From alpha to omega","3:45"],["Armageddon","4:36"],["She stoops to conquer","4:47"],["I know nothing","3:09"],["Rehumanize","4:50"],["Gaia's project","4:53"]]}
+];
+
+var grid=document.getElementById('grid');
+ALBUMS.forEach(function(a,i){
+  var card=document.createElement('div');card.className='album';
+  var inner='<div class="cover" data-album="'+a.titre.replace(/'/g,"\\'")+'">'+styled(a)+'</div>'
+   +'<div class="meta"><h3>'+a.titre.toUpperCase()+'</h3><div class="date">'+a.date+'</div>'
+   +'<button class="tracks-btn" data-i="'+i+'">Voir les '+a.tracks.length+' morceaux ▾</button>'
+   +'<ul class="tracks" id="tr'+i+'">'+a.tracks.map(function(t){return '<li>'+t[0]+'<span>'+t[1]+'</span></li>'}).join('')+'</ul>'
+   +'</div>';
+  card.innerHTML=inner;grid.appendChild(card);
+  var u=POCHETTES[a.titre];
+  var cover=card.querySelector('.cover');
+  if(u){
+    var img=new Image();img.alt='Pochette '+a.titre;
+    img.onerror=function(){cover.innerHTML=styled(a);};
+    img.onload=function(){cover.innerHTML='';cover.appendChild(img);};
+    img.src=u;
+  }
+});
+document.querySelectorAll('.tracks-btn').forEach(function(b){
+  b.addEventListener('click',function(){
+    var ul=document.getElementById('tr'+b.dataset.i);
+    var open=ul.classList.toggle('open');
+    b.textContent=b.textContent.replace(/ ▾| ▴/,'')+(open?' ▴':' ▾');
+  });
+});
+document.getElementById('dlForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  /* À brancher sur un service de newsletter (Brevo/Mailchimp) */
+  document.getElementById('okMsg').style.display='block';
+  this.querySelector('input').value='';
+});
+</script>
+</body>
+</html>
